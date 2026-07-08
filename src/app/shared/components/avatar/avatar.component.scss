@@ -1,0 +1,82 @@
+$sizes: (
+  'xs': 24px,
+  'sm': 32px,
+  'md': 40px,
+  'lg': 48px,
+  'xl': 64px,
+);
+
+$font-ratios: (
+  'xs': 10px,
+  'sm': 12px,
+  'md': 14px,
+  'lg': 16px,
+  'xl': 22px,
+);
+
+$status-sizes: (
+  'xs': 6px,
+  'sm': 8px,
+  'md': 10px,
+  'lg': 12px,
+  'xl': 14px,
+);
+
+.avatar {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+
+  @each $key, $dim in $sizes {
+    &--#{$key} {
+      width: $dim;
+      height: $dim;
+
+      .avatar__img,
+      .avatar__initials {
+        width: $dim;
+        height: $dim;
+        font-size: map-get($font-ratios, $key);
+      }
+
+      .avatar__status {
+        $s: map-get($status-sizes, $key);
+        width: $s;
+        height: $s;
+      }
+    }
+  }
+}
+
+.avatar__img {
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.avatar__initials {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  user-select: none;
+}
+
+.avatar__status {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+
+  &--online {
+    background-color: #22c55e;
+  }
+
+  &--offline {
+    background-color: #94a3b8;
+  }
+}

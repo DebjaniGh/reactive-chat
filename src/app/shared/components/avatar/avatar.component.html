@@ -1,1 +1,22 @@
-<p>avatar works!</p>
+<div class="avatar" [class]="'avatar--' + size">
+  <img
+    *ngIf="showImage"
+    [src]="src"
+    [alt]="name"
+    class="avatar__img"
+    (error)="onImgError()"
+  />
+  <span
+    *ngIf="!showImage"
+    class="avatar__initials"
+    [style.background-color]="bgColor"
+  >
+    {{ initials }}
+  </span>
+  <span
+    *ngIf="online !== null"
+    class="avatar__status"
+    [class.avatar__status--online]="online"
+    [class.avatar__status--offline]="!online"
+  ></span>
+</div>
