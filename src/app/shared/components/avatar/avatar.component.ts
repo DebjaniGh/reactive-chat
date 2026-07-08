@@ -2,17 +2,17 @@ import { Component, Input, OnChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 /**
- * Consistent sizing across the app. If every component passes its own pixel value, 
+ * Consistent sizing across the app. If every component passes its own pixel value,
  * you'd end up with avatars at 31px, 33px, 38px — visual inconsistency.
  */
-export type AvatarSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';  
+export type AvatarSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 @Component({
   selector: 'app-avatar',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './avatar.component.html',
-  styleUrl: './avatar.component.scss'
+  styleUrl: './avatar.component.scss',
 })
 /**
  * Reusable chat avatar that displays either a profile image or letter initials as a fallback,
@@ -29,9 +29,16 @@ export class AvatarComponent implements OnChanges {
   imgError = false; // Whether the image failed to load
 
   private readonly palette = [
-    '#6366f1', '#8b5cf6', '#ec4899', '#f43f5e',
-    '#f97316', '#eab308', '#22c55e', '#14b8a6',
-    '#3b82f6', '#06b6d4'
+    '#6366f1',
+    '#8b5cf6',
+    '#ec4899',
+    '#f43f5e',
+    '#f97316',
+    '#eab308',
+    '#22c55e',
+    '#14b8a6',
+    '#3b82f6',
+    '#06b6d4',
   ];
 
   ngOnChanges(): void {

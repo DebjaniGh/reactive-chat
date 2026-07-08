@@ -1,16 +1,6 @@
 <div class="avatar" [class]="'avatar--' + size">
-  <img
-    *ngIf="showImage"
-    [src]="src"
-    [alt]="name"
-    class="avatar__img"
-    (error)="onImgError()"
-  />
-  <span
-    *ngIf="!showImage"
-    class="avatar__initials"
-    [style.background-color]="bgColor"
-  >
+  <img *ngIf="showImage" [src]="src" [alt]="name" class="avatar__img" (error)="onImgError()" />
+  <span *ngIf="!showImage" class="avatar__initials" [style.background-color]="bgColor">
     {{ initials }}
   </span>
   <span

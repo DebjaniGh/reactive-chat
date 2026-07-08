@@ -5,5 +5,5 @@
   [class.msg-bubble--other]="!message.isOwn"
 >
   <p class="msg-bubble__text">{{ message.content }}</p>
-  <span class="msg-bubble__time">{{ message.timestamp | date:'shortTime' }}</span>
+  <span class="msg-bubble__time">{{ message.timestamp | date: 'shortTime' }}</span>
 </div>

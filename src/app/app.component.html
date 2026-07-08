@@ -5,4 +5,10 @@
   @for (msg of testMessages; track msg.id) {
     <app-msg-bubble [message]="msg" />
   }
+   <div style="flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding: 20px;">
+        @for (msg of messages; track msg.id) {
+          <app-msg-bubble [message]="msg" />
+        }
+    </div>
+      <app-message-input (messageSent)="onSend($event)" />
 </div>

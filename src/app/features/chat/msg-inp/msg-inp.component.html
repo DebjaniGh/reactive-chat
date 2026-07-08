@@ -1,1 +1,31 @@
-<p>msg-inp works!</p>
+<!-- src/app/features/chat/message-input/message-input.component.html -->
+<div class="message-input">
+  <input
+    class="message-input__field"
+    type="text"
+    placeholder="Type a message..."
+    [(ngModel)]="text"
+    (keydown)="onKeydown($event)"
+    autocomplete="off"
+  />
+  <button
+    class="message-input__send"
+    [class.message-input__send--active]="text.trim().length > 0"
+    [disabled]="!text.trim()"
+    (click)="send()"
+  >
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <line x1="22" y1="2" x2="11" y2="13"></line>
+      <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+    </svg>
+  </button>
+</div>
