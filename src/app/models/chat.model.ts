@@ -2,7 +2,7 @@ export interface User {
   id: string;
   name: string;
   avatarUrl: string | null;
-  isOnline: boolean;
+  status: 'online' | 'offline' | 'away';
   lastSeen: Date | null;
 }
 

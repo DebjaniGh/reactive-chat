@@ -1,1 +1,9 @@
-<p>msg-bubble works!</p>
+<!-- src/app/features/chat/msg-bubble/msg-bubble.component.html -->
+<div
+  class="msg-bubble"
+  [class.msg-bubble--own]="message.isOwn"
+  [class.msg-bubble--other]="!message.isOwn"
+>
+  <p class="msg-bubble__text">{{ message.content }}</p>
+  <span class="msg-bubble__time">{{ message.timestamp | date:'shortTime' }}</span>
+</div>

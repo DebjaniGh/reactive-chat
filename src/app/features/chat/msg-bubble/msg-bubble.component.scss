@@ -1,0 +1,72 @@
+// src/app/features/chat/msg-bubble/msg-bubble.component.scss
+:host {
+  display: flex;
+}
+
+.msg-bubble {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 8px;
+  max-width: 70%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  line-height: 1.45;
+
+  &--own {
+    margin-left: auto;
+    background-color: #6366f1;
+    color: #ffffff;
+    border-bottom-right-radius: 4px;
+  }
+
+  &--other {
+    margin-right: auto;
+    background-color: #f1f5f9;
+    color: #1e293b;
+    border-bottom-left-radius: 4px;
+  }
+
+  &__text {
+    word-break: break-word;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  &__time {
+    font-size: 0.65rem;
+    white-space: nowrap;
+
+    .msg-bubble--own & {
+      color: #c7d2fe;
+    }
+
+    .msg-bubble--other & {
+      color: #64748b;
+    }
+  }
+
+  &__status {
+    font-size: 0.65rem;
+
+    &--sending {
+      color: #a5b4fc;
+    }
+
+    &--sent {
+      color: #c7d2fe;
+    }
+
+    &--delivered {
+      color: #c7d2fe;
+    }
+
+    &--read {
+      color: #67e8f9;
+    }
+  }
+}

@@ -1,3 +1,8 @@
 <app-avatar name="Alice Smith" size="md" [status]="'online'" />
 <app-avatar [src]="user.avatarUrl" name="Bob Jones" size="lg" [status]="'offline'" />
 <app-avatar name="Carol" size="xl" [status]="'away'" />
+<div style="max-width: 600px; margin: 40px auto; display: flex; flex-direction: column; gap: 8px; padding: 20px;">
+  @for (msg of testMessages; track msg.id) {
+    <app-msg-bubble [message]="msg" />
+  }
+</div>
