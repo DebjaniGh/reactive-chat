@@ -22,7 +22,7 @@ export class AvatarComponent implements OnChanges {
   @Input() src: string | null = null; // URL of the user's profile picture
   @Input() name: string = ''; // User's full name for generating initials
   @Input() size: AvatarSize = 'md'; // Size of the avatar (xs, sm, md, lg, xl)
-  @Input() online: boolean | null = null; // Whether the user is online (null = no status indicator)
+  @Input() status: 'online' | 'offline' | 'away' | null = null; // Whether the user is online (null = no status indicator)
 
   initials = ''; // First two letters of the user's name
   bgColor = ''; // Background color for the initials

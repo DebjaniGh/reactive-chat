@@ -14,9 +14,10 @@
     {{ initials }}
   </span>
   <span
-    *ngIf="online !== null"
+    *ngIf="status !== null"
     class="avatar__status"
-    [class.avatar__status--online]="online"
-    [class.avatar__status--offline]="!online"
+    [class.avatar__status--online]="status === 'online'"
+    [class.avatar__status--offline]="status === 'offline'"
+    [class.avatar__status--away]="status === 'away'"
   ></span>
 </div>
