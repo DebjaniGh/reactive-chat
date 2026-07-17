@@ -1,1 +1,16 @@
-<p>chat-shell works!</p>
+<!-- src/app/features/chat/chat-shell/chat-shell.component.html -->
+<div class="chat-shell">
+  <app-header class="chat-shell__header" [currentUser]="currentUser" (logoutClicked)="onLogout()" />
+  <app-sidebar
+    class="chat-shell__sidebar"
+    [conversations]="conversations"
+    [selectedConversationId]="selectedConversation?.id ?? null"
+    (conversationSelected)="onConversationSelected($event)"
+  />
+  <app-chat-window
+    class="chat-shell__window"
+    [conversation]="selectedConversation"
+    [messages]="currentMessages"
+    (messageSent)="onMessageSent($event)"
+  />
+</div>

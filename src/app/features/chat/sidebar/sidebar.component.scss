@@ -23,22 +23,22 @@
     left: 28px;
     top: 50%;
     transform: translateY(-50%);
-    color: #818cf8;
+    color: #6366f1;
     pointer-events: none;
   }
 
   &__search-input {
     width: 100%;
     padding: 10px 12px 10px 36px;
-    background-color: #4338ca;
+    background-color: #e0e7ff;
     border: 1px solid transparent;
     border-radius: 8px;
-    color: #e0e7ff;
+    color: #312e81;
     font-size: 0.85rem;
     transition: border-color 0.2s ease;
 
     &::placeholder {
-      color: #818cf8;
+      color: #6366f1;
     }
 
     &:focus {
