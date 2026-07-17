@@ -5,6 +5,7 @@ import { MsgBubbleComponent } from './features/chat/msg-bubble/msg-bubble.compon
 import { MessageInputComponent } from './features/chat/msg-inp/msg-inp.component';
 import { ChatWindowComponent } from './features/chat/chat-window/chat-window.component';
 import { ConversationListComponent } from './features/chat/conversation-list/conversation-list.component';
+import { SidebarComponent } from './features/chat/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ import { ConversationListComponent } from './features/chat/conversation-list/con
     // MsgBubbleComponent, MessageInputComponent,
     // ChatWindowComponent,
     ConversationListComponent,
+    SidebarComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

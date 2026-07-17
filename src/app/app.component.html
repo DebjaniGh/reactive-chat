@@ -54,4 +54,12 @@
       (conversationSelected)="onConvoSelect($event)"
     />
   </div>
+  <h3 style="color: #6366f1; padding: 0 20px">Sidebar Test</h3>
+  <div style="width: 320px; height: 500px; margin: 20px; border-radius: 8px; overflow: hidden">
+    <app-sidebar
+      [conversations]="testConversation"
+      [selectedConversationId]="selectedConvoId"
+      (conversationSelected)="onConvoSelect($event)"
+    />
+  </div>
 </div>
