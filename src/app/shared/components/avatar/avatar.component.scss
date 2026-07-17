@@ -70,7 +70,7 @@ $status-sizes: (
   bottom: 0;
   right: 0;
   border-radius: 50%;
-  border: 2px solid #ffffff;
+  border: 2px solid var(--avatar-ring, #ffffff);
 
   &--online {
     background-color: #22c55e;

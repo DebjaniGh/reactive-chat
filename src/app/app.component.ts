@@ -4,6 +4,7 @@ import { Conversation, Message, User } from './models/chat.model';
 import { MsgBubbleComponent } from './features/chat/msg-bubble/msg-bubble.component';
 import { MessageInputComponent } from './features/chat/msg-inp/msg-inp.component';
 import { ChatWindowComponent } from './features/chat/chat-window/chat-window.component';
+import { ConversationListComponent } from './features/chat/conversation-list/conversation-list.component';
 
 @Component({
   selector: 'app-root',
@@ -11,13 +12,15 @@ import { ChatWindowComponent } from './features/chat/chat-window/chat-window.com
   imports: [
     AvatarComponent,
     // MsgBubbleComponent, MessageInputComponent,
-    ChatWindowComponent,
+    // ChatWindowComponent,
+    ConversationListComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'reactive-chat';
+  selectedConvoId: string | null = null;
 
   user: User = {
     id: '1',
@@ -27,19 +30,96 @@ export class AppComponent {
     lastSeen: null,
   };
 
-  testConversation: Conversation = {
-    id: 'conv-1',
-    participant: {
-      id: 'user-2',
-      name: 'Alice Chen',
-      avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=AliceChen',
-      status: 'online',
-      lastSeen: null,
+  testConversation: Conversation[] = [
+    {
+      id: 'conv-1',
+      participant: {
+        id: 'user-2',
+        name: 'Alice Chen',
+        avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=AliceChen',
+        status: 'online',
+        lastSeen: null,
+      },
+      lastMessage: {
+        id: 'm5',
+        conversationId: 'conv-1',
+        senderId: 'user-2',
+        type: 'text',
+        content: 'This is really impressive! Love the scan demo 🎉',
+        timestamp: new Date(Date.now() - 25 * 60000),
+        status: 'read',
+        isOwn: false,
+      },
+      unreadCount: 2,
+      updatedAt: new Date(),
     },
-    lastMessage: null,
-    unreadCount: 0,
-    updatedAt: new Date(),
-  };
+    {
+      id: 'conv-2',
+      participant: {
+        id: 'user-3',
+        name: 'Bob Smith',
+        avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=BobSmith',
+        status: 'online',
+        lastSeen: null,
+      },
+      lastMessage: {
+        id: 'm9',
+        conversationId: 'conv-2',
+        senderId: 'user-1',
+        type: 'text',
+        content: 'Agreed. No more *ngIf and *ngFor directives',
+        timestamp: new Date(Date.now() - 110 * 60000),
+        status: 'read',
+        isOwn: true,
+      },
+      unreadCount: 0,
+      updatedAt: new Date(),
+    },
+    {
+      id: 'conv-3',
+      participant: {
+        id: 'user-4',
+        name: 'Carol Williams',
+        avatarUrl: null,
+        status: 'offline',
+        lastSeen: new Date(Date.now() - 60 * 60000),
+      },
+      lastMessage: {
+        id: 'm13',
+        conversationId: 'conv-3',
+        senderId: 'user-1',
+        type: 'text',
+        content: "I'll be there!",
+        timestamp: new Date(Date.now() - 1420 * 60000),
+        status: 'read',
+        isOwn: true,
+      },
+      unreadCount: 0,
+      updatedAt: new Date(),
+    },
+    {
+      id: 'conv-4',
+      participant: {
+        id: 'user-5',
+        name: 'David Brown',
+        avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DavidBrown',
+        status: 'away',
+        lastSeen: null,
+      },
+      lastMessage: {
+        id: 'm17',
+        conversationId: 'conv-4',
+        senderId: 'user-5',
+        type: 'text',
+        content: 'Meeting at 3 PM today',
+        timestamp: new Date(Date.now() - 180 * 60000),
+        status: 'read',
+        isOwn: false,
+      },
+      unreadCount: 1,
+      updatedAt: new Date(),
+    },
+  ];
 
   testMessages: Message[] = [
     {
@@ -129,5 +209,9 @@ export class AppComponent {
       isOwn: true,
     };
     this.testMessages = [...this.testMessages, newMsg];
+  }
+
+  onConvoSelect(convo: Conversation): void {
+    this.selectedConvoId = convo.id;
   }
 }

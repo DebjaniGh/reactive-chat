@@ -1,1 +1,43 @@
-<p>conversation-list works!</p>
+<!-- src/app/features/chat/conversation-list/conversation-list.component.html -->
+<div class="convo-list">
+  @for (convo of conversations; track convo.id) {
+    <button
+      class="convo-list__item"
+      [class.convo-list__item--active]="convo.id === selectedConversationId"
+      (click)="select(convo)"
+    >
+      <app-avatar
+        [src]="convo.participant.avatarUrl"
+        [name]="convo.participant.name"
+        [status]="convo.participant.status"
+        size="md"
+      />
+      <div class="convo-list__info">
+        <div class="convo-list__top">
+          <span class="convo-list__name">{{ convo.participant.name }}</span>
+          <span class="convo-list__time">
+            {{ getTimestamp(convo) | date: 'shortTime' }}
+          </span>
+        </div>
+        <div class="convo-list__bottom">
+          @if (convo.lastMessage) {
+            <span class="convo-list__preview">
+              {{ convo.lastMessage.content }}
+            </span>
+          } @else {
+            <span class="convo-list__preview convo-list__preview--empty">No messages yet</span>
+          }
+          @if (convo.unreadCount > 0) {
+            <span class="convo-list__badge">
+              {{ convo.unreadCount }}
+            </span>
+          }
+        </div>
+      </div>
+    </button>
+  } @empty {
+    <div class="convo-list__empty">
+      <p>No conversations found</p>
+    </div>
+  }
+</div>

@@ -39,10 +39,19 @@
   <div style="width: 320px; background: #3730a3; border-radius: 8px 0 0 8px"></div>
   <!-- Chat window -->
   <!-- To test empty state, temporarily change [conversation]="testConversation" to [conversation]="null" -->
-  <app-chat-window
+  <!-- <app-chat-window
     style="flex: 1; border: 1px solid #e2e8f0; border-radius: 0 8px 8px 0"
     [conversation]="testConversation"
     [messages]="testMessages"
     (messageSent)="onSend($event)"
-  />
+  /> -->
+  <!-- New: conversation list test -->
+  <h3 style="color: #6366f1; padding: 0 20px">Conversation List Test</h3>
+  <div style="width: 320px; background: #3730a3; border-radius: 8px; margin: 20px; padding: 8px 0">
+    <app-conversation-list
+      [conversations]="testConversation"
+      [selectedConversationId]="selectedConvoId"
+      (conversationSelected)="onConvoSelect($event)"
+    />
+  </div>
 </div>
