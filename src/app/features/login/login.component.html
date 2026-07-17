@@ -1,1 +1,28 @@
-<p>login works!</p>
+<!-- src/app/features/login/login.component.html -->
+<div class="login">
+  <div class="login__card">
+    <svg
+      class="login__logo"
+      width="48"
+      height="48"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#6366f1"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+
+    <h1 class="login__title">ReactiveChat</h1>
+    <p class="login__subtitle">Real-time chat powered by RxJS + Angular</p>
+
+    <button class="login__button" (click)="login()">
+      <app-avatar [src]="currentUser.avatarUrl" [name]="currentUser.name" size="sm" />
+      <span>Continue as {{ currentUser.name }}</span>
+    </button>
+
+    <p class="login__hint">Phase 1 — Mock login. Firebase auth coming in Phase 3.</p>
+  </div>
+</div>

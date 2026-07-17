@@ -1,0 +1,65 @@
+// src/app/features/login/login.component.scss
+:host {
+  display: block;
+  height: 100vh;
+}
+
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: linear-gradient(135deg, #312e81 0%, #3730a3 50%, #4338ca 100%);
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 48px 40px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 420px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  }
+
+  &__title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1e293b;
+    letter-spacing: -0.03em;
+  }
+
+  &__subtitle {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #6366f1;
+    color: #ffffff;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #4f46e5;
+    }
+  }
+
+  &__hint {
+    color: #94a3b8;
+    font-size: 0.75rem;
+    margin-top: 8px;
+  }
+}
