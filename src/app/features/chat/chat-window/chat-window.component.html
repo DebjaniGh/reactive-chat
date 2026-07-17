@@ -1,1 +1,49 @@
-<p>chat-window works!</p>
+<!-- src/app/features/chat/chat-window/chat-window.component.html -->
+@if (conversation) {
+  <div class="chat-window">
+    <div class="chat-window__header">
+      <app-avatar
+        [src]="conversation.participant.avatarUrl"
+        [name]="conversation.participant.name"
+        [status]="conversation.participant.status"
+        size="md"
+      />
+      <div class="chat-window__header-info">
+        <h2 class="chat-window__name">{{ conversation.participant.name }}</h2>
+        <span
+          class="chat-window__status"
+          [class.chat-window__status--online]="conversation.participant.status === 'online'"
+        >
+          {{ conversation.participant.status }}
+        </span>
+      </div>
+    </div>
+
+    <div class="chat-window__messages" #messageList>
+      @for (msg of messages; track msg.id) {
+        <app-msg-bubble [message]="msg" />
+      }
+    </div>
+
+    <app-message-input (messageSent)="onMessageSent($event)" />
+  </div>
+} @else {
+  <div class="chat-window chat-window--empty">
+    <div class="chat-window__placeholder">
+      <svg
+        width="64"
+        height="64"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#c7d2fe"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+      <h2>Select a conversation</h2>
+      <p>Choose a chat from the sidebar to start messaging</p>
+    </div>
+  </div>
+}

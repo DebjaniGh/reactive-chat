@@ -1,13 +1,18 @@
 import { Component } from '@angular/core';
 import { AvatarComponent } from './shared/components/avatar/avatar.component';
-import { Message, User } from './models/chat.model';
+import { Conversation, Message, User } from './models/chat.model';
 import { MsgBubbleComponent } from './features/chat/msg-bubble/msg-bubble.component';
 import { MessageInputComponent } from './features/chat/msg-inp/msg-inp.component';
+import { ChatWindowComponent } from './features/chat/chat-window/chat-window.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [AvatarComponent, MsgBubbleComponent, MessageInputComponent],
+  imports: [
+    AvatarComponent,
+    // MsgBubbleComponent, MessageInputComponent,
+    ChatWindowComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -20,6 +25,20 @@ export class AppComponent {
     avatarUrl: null,
     status: 'online',
     lastSeen: null,
+  };
+
+  testConversation: Conversation = {
+    id: 'conv-1',
+    participant: {
+      id: 'user-2',
+      name: 'Alice Chen',
+      avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=AliceChen',
+      status: 'online',
+      lastSeen: null,
+    },
+    lastMessage: null,
+    unreadCount: 0,
+    updatedAt: new Date(),
   };
 
   testMessages: Message[] = [
@@ -109,6 +128,6 @@ export class AppComponent {
       status: 'sent',
       isOwn: true,
     };
-    this.messages = [...this.messages, newMsg];
+    this.testMessages = [...this.testMessages, newMsg];
   }
 }

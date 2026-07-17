@@ -1,14 +1,48 @@
 <app-avatar name="Alice Smith" size="md" [status]="'online'" />
 <app-avatar [src]="user.avatarUrl" name="Bob Jones" size="lg" [status]="'offline'" />
 <app-avatar name="Carol" size="xl" [status]="'away'" />
-<div style="max-width: 600px; margin: 40px auto; display: flex; flex-direction: column; gap: 8px; padding: 20px;">
+<!-- <div
+  style="
+    max-width: 600px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px;
+  "
+>
   @for (msg of testMessages; track msg.id) {
     <app-msg-bubble [message]="msg" />
   }
-   <div style="flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding: 20px;">
-        @for (msg of messages; track msg.id) {
-          <app-msg-bubble [message]="msg" />
-        }
-    </div>
-      <app-message-input (messageSent)="onSend($event)" />
+  <div
+    style="
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 20px;
+    "
+  >
+    @for (msg of messages; track msg.id) {
+      <app-msg-bubble [message]="msg" />
+    }
+  </div>
+  <app-message-input (messageSent)="onSend($event)" />
+</div>
+<hr style="border-color: #e2e8f0; margin: 20px 0" /> -->
+
+<!-- New: chat-window test -->
+<h3 style="color: #6366f1; padding: 0 20px">Chat Window Test</h3>
+<div style="height: 70vh; display: flex; margin: 20px">
+  <!-- Indigo placeholder simulating sidebar -->
+  <div style="width: 320px; background: #3730a3; border-radius: 8px 0 0 8px"></div>
+  <!-- Chat window -->
+  <!-- To test empty state, temporarily change [conversation]="testConversation" to [conversation]="null" -->
+  <app-chat-window
+    style="flex: 1; border: 1px solid #e2e8f0; border-radius: 0 8px 8px 0"
+    [conversation]="testConversation"
+    [messages]="testMessages"
+    (messageSent)="onSend($event)"
+  />
 </div>
