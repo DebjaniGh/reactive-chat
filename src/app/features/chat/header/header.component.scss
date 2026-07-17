@@ -1,0 +1,56 @@
+// src/app/features/chat/header/header.component.scss
+:host {
+  display: block;
+  --avatar-ring: #312e81;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 64px;
+  background-color: #312e81;
+  flex-shrink: 0;
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #e0e7ff;
+    letter-spacing: -0.02em;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  &__username {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #c7d2fe;
+  }
+
+  &__logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    color: #a5b4fc;
+    transition: all 0.15s ease;
+
+    &:hover {
+      background-color: #3730a3;
+      color: #e0e7ff;
+    }
+  }
+}

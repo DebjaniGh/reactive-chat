@@ -46,20 +46,24 @@
     (messageSent)="onSend($event)"
   /> -->
   <!-- New: conversation list test -->
-  <h3 style="color: #6366f1; padding: 0 20px">Conversation List Test</h3>
+  <!-- <h3 style="color: #6366f1; padding: 0 20px">Conversation List Test</h3>
   <div style="width: 320px; background: #3730a3; border-radius: 8px; margin: 20px; padding: 8px 0">
     <app-conversation-list
       [conversations]="testConversation"
       [selectedConversationId]="selectedConvoId"
       (conversationSelected)="onConvoSelect($event)"
     />
-  </div>
-  <h3 style="color: #6366f1; padding: 0 20px">Sidebar Test</h3>
+  </div> -->
+  <!-- <h3 style="color: #6366f1; padding: 0 20px">Sidebar Test</h3>
   <div style="width: 320px; height: 500px; margin: 20px; border-radius: 8px; overflow: hidden">
     <app-sidebar
       [conversations]="testConversation"
       [selectedConversationId]="selectedConvoId"
       (conversationSelected)="onConvoSelect($event)"
     />
-  </div>
+  </div> -->
+  <hr style="border-color: #e2e8f0; margin: 20px 0" />
+
+  <h3 style="color: #6366f1; padding: 0 20px">Header Test</h3>
+  <app-header [currentUser]="user" (logoutClicked)="onLogout()" />
 </div>

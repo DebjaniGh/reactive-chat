@@ -6,6 +6,7 @@ import { MessageInputComponent } from './features/chat/msg-inp/msg-inp.component
 import { ChatWindowComponent } from './features/chat/chat-window/chat-window.component';
 import { ConversationListComponent } from './features/chat/conversation-list/conversation-list.component';
 import { SidebarComponent } from './features/chat/sidebar/sidebar.component';
+import { HeaderComponent } from './features/chat/header/header.component';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,7 @@ import { SidebarComponent } from './features/chat/sidebar/sidebar.component';
     // ChatWindowComponent,
     ConversationListComponent,
     SidebarComponent,
+    HeaderComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -215,5 +217,9 @@ export class AppComponent {
 
   onConvoSelect(convo: Conversation): void {
     this.selectedConvoId = convo.id;
+  }
+
+  onLogout(): void {
+    console.log('Logout clicked');
   }
 }
